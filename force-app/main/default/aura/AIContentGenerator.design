@@ -1,0 +1,3 @@
+<design:component label="AI Content Generator">
+    <design:attribute name="provider" label="Default Provider"/>
+</design:component>

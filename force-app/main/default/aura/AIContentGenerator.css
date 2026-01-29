@@ -1,0 +1,16 @@
+/**
+ * Author: Iqra Masood
+ * Description: Styling for AIContentGenerator component
+ */
+
+.THIS .ai-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.THIS .result-box {
+    background-color: #f3f6f9;
+    padding: 12px;
+    border-radius: 6px;
+    white-space: pre-wrap;
+}

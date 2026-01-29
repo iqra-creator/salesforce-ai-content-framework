@@ -1,0 +1,77 @@
+<!--
+    Author: Iqra Masood
+    Description:
+    Aura component that allows users to generate AI-powered content
+    using multiple providers (ChatGPT, Gemini) with model selection.
+    Built for demonstration of secure callouts, clean architecture,
+    and scalable Salesforce UI patterns.
+-->
+
+<aura:component
+        controller="AIContentController"
+        implements="flexipage:availableForAllPageTypes"
+        access="global">
+
+    <!-- Attributes -->
+    <aura:attribute name="provider" type="String" default="ChatGPT"/>
+    <aura:attribute name="model" type="String"/>
+    <aura:attribute name="models" type="List"/>
+    <aura:attribute name="prompt" type="String"/>
+    <aura:attribute name="result" type="String"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+
+    <!-- Init -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="ai-container">
+
+        <lightning:card title="AI Content Generator">
+
+            <div class="slds-p-around_medium">
+
+                <lightning:select
+                        label="AI Provider"
+                        value="{!v.provider}"
+                        onchange="{!c.onProviderChange}">
+                    <option value="ChatGPT">ChatGPT</option>
+                    <option value="Gemini">Gemini</option>
+                </lightning:select>
+
+                <lightning:select
+                        label="Model"
+                        value="{!v.model}"
+                        class="slds-m-top_small">
+                    <aura:iteration items="{!v.models}" var="m">
+                        <option value="{!m}">{!m}</option>
+                    </aura:iteration>
+                </lightning:select>
+
+                <lightning:textarea
+                        label="Prompt"
+                        value="{!v.prompt}"
+                        class="slds-m-top_small"
+                        placeholder="Enter your prompt here..."/>
+
+                <lightning:button
+                        label="Generate"
+                        variant="brand"
+                        class="slds-m-top_medium"
+                        onclick="{!c.generate}"/>
+
+                <aura:if isTrue="{!v.isLoading}">
+                    <lightning:spinner size="small"/>
+                </aura:if>
+
+                <aura:if isTrue="{!not(empty(v.result))}">
+                    <div class="result-box slds-m-top_medium">
+                        <lightning:formattedText value="{!v.result}"/>
+                    </div>
+                </aura:if>
+
+            </div>
+
+        </lightning:card>
+
+    </div>
+
+</aura:component>

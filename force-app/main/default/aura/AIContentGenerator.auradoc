@@ -1,0 +1,11 @@
+<aura:documentation>
+    <aura:description>
+        AIContentGenerator is a reusable Aura component that enables
+        users to generate AI-powered content using multiple providers
+        such as ChatGPT and Gemini with model selection.
+    </aura:description>
+
+    <aura:example name="Basic Usage">
+        <c:AIContentGenerator />
+    </aura:example>
+</aura:documentation>
