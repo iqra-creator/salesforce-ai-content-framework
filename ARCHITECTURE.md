@@ -1,3 +1,5 @@
+AI Content Framework Architecture
+
 User
  ↓
 Aura Component
