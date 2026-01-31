@@ -15,5 +15,4 @@ Demonstrates enterprise-level Salesforce development, API integrations,
 and scalable architecture.
 
 ## Author
-Iqra Masood
-Salesforce Administrator & Developer
+Iqra Masood - Salesforce Administrator & Developer
